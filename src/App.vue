@@ -16,18 +16,20 @@
         },
         data() {
             return {
-                todos: [
-                    {
-                        title: "title 1"
-                    },
-                    {
-                        title: "title 2"
-                    },
-                    {
-                        title: "title 3"
-                    }
-                ]
+                todos: null
             }
+        },
+        mounted() {
+            fetch('./data/data.json')
+                .then(response => {
+                    return response.json();
+                })
+                .then(data => {
+                    this.todos = data;
+                })
+                .catch(err => {
+                    console.log(`Fetch error: ${err}`)
+                })
         }
     }
 </script>
