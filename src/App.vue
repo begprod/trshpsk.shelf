@@ -1,8 +1,8 @@
 <template>
     <div id="app">
-        <ol>
-            <List v-for="item in todos" v-bind:items="item"/>
-        </ol>
+        <div>
+            <List v-for="(item, index) in films" v-bind:items="item" v-bind:key="index"/>
+        </div>
     </div>
 </template>
 
@@ -16,7 +16,7 @@
         },
         data() {
             return {
-                todos: null
+                films: null
             }
         },
         mounted() {
@@ -25,7 +25,7 @@
                     return response.json();
                 })
                 .then(data => {
-                    this.todos = data;
+                    this.films = data.sort((a, b) => a.title.localeCompare(b.title));
                 })
                 .catch(err => {
                     console.log(`Fetch error: ${err}`)
