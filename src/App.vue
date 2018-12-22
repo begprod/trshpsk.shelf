@@ -1,7 +1,7 @@
 <template>
     <div id="app">
         <Header name="trshpsk.shelf"/>
-        <div class="wrapper">
+        <div class="wrapper wrapper_grid">
             <Card v-for="(item, index) in films" v-bind:items="item" v-bind:key="index"/>
         </div>
     </div>
@@ -38,6 +38,16 @@
 </script>
 
 <style lang="scss">
+    html {
+        box-sizing: border-box;
+    }
+
+    *,
+    *::after,
+    *::before {
+        box-sizing: inherit;
+    }
+
     body {
         margin: 0;
         padding: 0;
@@ -47,6 +57,10 @@
     .wrapper {
         max-width: 1280px;
         margin: 0 auto;
-        border: 1px solid deeppink;
+        &_grid {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
     }
 </style>

@@ -18,7 +18,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        margin-bottom: 50px;
+        margin-bottom: 70px;
         height: 70px;
         border-bottom: 1px solid rgba(75, 75, 75, .2);
         &__logo {
