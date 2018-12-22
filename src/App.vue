@@ -1,8 +1,12 @@
 <template>
     <div id="app">
         <Header name="trshpsk.shelf"/>
+        <div class="wrapper" style="margin-bottom: 70px">
+            <label for="search">Search</label>
+            <input id="search" type="text" placeholder="Search" v-model="search">
+        </div>
         <div class="wrapper wrapper_grid">
-            <Card v-for="(item, index) in films" v-bind:items="item" v-bind:key="index"/>
+            <Card v-for="(item, index) in filteredList" v-bind:items="item" v-bind:key="index"/>
         </div>
     </div>
 </template>
@@ -19,10 +23,11 @@
         },
         data() {
             return {
-                films: null
+                films: [],
+                search: ''
             }
         },
-        mounted() {
+        created() {
             fetch('./data/data.json')
                 .then(response => {
                     return response.json();
@@ -33,6 +38,15 @@
                 .catch(err => {
                     console.log(`Fetch error: ${err}`)
                 })
+        },
+        computed: {
+            filteredList: function () {
+                return this.films.filter((film) => {
+                    return film.title.toLowerCase().includes(this.search.toLowerCase()) ||
+                           film.title_eng.toLowerCase().includes(this.search.toLowerCase()) ||
+                           film.year.toString().includes(this.search);
+                });
+            }
         }
     }
 </script>
