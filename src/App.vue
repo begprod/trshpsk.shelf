@@ -1,5 +1,6 @@
 <template>
     <div id="app">
+        <Header name="name"/>
         <div>
             <Card v-for="(item, index) in films" v-bind:items="item" v-bind:key="index"/>
         </div>
@@ -7,11 +8,13 @@
 </template>
 
 <script>
-    import Card from './components/Card.vue'
+    import Card from './components/Card.vue';
+    import Header from './components/Header.vue';
 
     export default {
         name: 'app',
         components: {
+            Header,
             Card
         },
         data() {
