@@ -8,16 +8,19 @@
             </div>
             <div class="card__status">
                 <svg class="card__icon">
-                    <use xlink:href="./img/icons-svg/orion-svg-sprite.svg#checkbox-confirm-circle-1"></use>
+                    <use xlink:href="./img/icons-svg/icons.svg#check-square-1"></use>
                 </svg>
                 <svg class="card__icon">
-                    <use xlink:href="./img/icons-svg/orion-svg-sprite.svg#video-camera-1"></use>
+                    <use xlink:href="./img/icons-svg/icons.svg#minus-square-1"></use>
                 </svg>
                 <svg class="card__icon">
-                    <use xlink:href="./img/icons-svg/orion-svg-sprite.svg#save-file-1"></use>
+                    <use xlink:href="./img/icons-svg/icons.svg#video-camera-1"></use>
                 </svg>
                 <svg class="card__icon">
-                    <use xlink:href="./img/icons-svg/orion-svg-sprite.svg#verify-woman-user-1"></use>
+                    <use xlink:href="./img/icons-svg/icons.svg#save-file-1"></use>
+                </svg>
+                <svg class="card__icon">
+                    <use xlink:href="./img/icons-svg/icons.svg#verify-woman-user-1"></use>
                 </svg>
             </div>
         </div>
@@ -75,13 +78,15 @@
                 color: rgba(75, 75, 75, .6);
             }
         }
+        &__status {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            justify-content: space-between;
+        }
         &__icon {
             width: 35px;
             height: 35px;
-            margin-right: 15px;
-            &:last-child {
-                margin-right: 0;
-            }
         }
     }
 </style>
