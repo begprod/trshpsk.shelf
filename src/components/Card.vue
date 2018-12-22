@@ -5,6 +5,18 @@
                 <h2 class="card__title">{{ items.title }}</h2>
                 <h3 class="card__title card__title_md" v-if="items.title_eng">{{ items.title_eng }}</h3>
                 <h4 class="card__title card__title_sm">{{ items.year }}</h4>
+                <a class="card__link" v-bind:href="items.trshpsk_link" v-if="items.trshpsk_link" target="_blank">
+                    trashopoisk.com
+                    <svg class="card__link-icon">
+                        <use xlink:href="./img/icons-svg/icons.svg#external-link-1"></use>
+                    </svg>
+                </a>
+                <a class="card__link" v-bind:href="items.knpsk_link" v-if="items.knpsk_link" target="_blank">
+                    kinopoisk.ru
+                    <svg class="card__link-icon">
+                        <use xlink:href="./img/icons-svg/icons.svg#external-link-1"></use>
+                    </svg>
+                </a>
             </div>
             <div class="card__status">
                 <svg class="card__icon" v-if="items.viewed">
@@ -23,9 +35,17 @@
                     <title>Трейлер на сайте</title>
                     <use xlink:href="./img/icons-svg/icons.svg#video-camera-1"></use>
                 </svg>
+                <svg class="card__icon" v-if="!items.iframe_trailer">
+                    <title>Трейлера нет сайте</title>
+                    <use xlink:href="./img/icons-svg/icons.svg#minus-square-1"></use>
+                </svg>
                 <svg class="card__icon" v-if="items.review">
                     <title>Обзор есть</title>
                     <use xlink:href="./img/icons-svg/icons.svg#save-file-1"></use>
+                </svg>
+                <svg class="card__icon" v-if="!items.review">
+                    <title>Обзора нет</title>
+                    <use xlink:href="./img/icons-svg/icons.svg#minus-square-1"></use>
                 </svg>
                 <svg class="card__icon" v-if="items.review_user">
                     <title>Обзор от пользователя</title>
@@ -86,6 +106,19 @@
                 font-size: 14px;
                 color: rgba(75, 75, 75, .6);
             }
+        }
+        &__link {
+            display: flex;
+            flex-wrap: nowrap;
+            align-items: center;
+            margin-bottom: 10px;
+            font-size: 14px;
+            color: #5ade9c;
+        }
+        &__link-icon {
+            width: 15px;
+            height: 15px;
+            margin-left: 10px;
         }
         &__status {
             display: flex;
