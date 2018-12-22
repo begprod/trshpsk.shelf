@@ -1,7 +1,7 @@
 <template>
     <div id="app">
-        <Header name="name"/>
-        <div>
+        <Header name="trshpsk.shelf"/>
+        <div class="wrapper">
             <Card v-for="(item, index) in films" v-bind:items="item" v-bind:key="index"/>
         </div>
     </div>
@@ -38,7 +38,15 @@
 </script>
 
 <style lang="scss">
-    .test {
-        color: red;
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+    }
+
+    .wrapper {
+        max-width: 1280px;
+        margin: 0 auto;
+        border: 1px solid deeppink;
     }
 </style>

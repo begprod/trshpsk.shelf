@@ -1,6 +1,6 @@
 <template>
     <header class="header">
-        {{ name }}
+        <div class="header__logo">{{ name }}</div>
     </header>
 </template>
 
@@ -15,7 +15,16 @@
 
 <style lang="scss">
     .header {
-        height: 100px;
-        border: 3px solid red;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 50px;
+        height: 70px;
+        border-bottom: 1px solid rgba(75, 75, 75, .2);
+        &__logo {
+            font-size: 28px;
+            font-weight: bold;
+            color: #ff4e00;
+        }
     }
 </style>
