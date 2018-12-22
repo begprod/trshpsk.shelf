@@ -1,18 +1,18 @@
 <template>
     <div id="app">
         <div>
-            <List v-for="(item, index) in films" v-bind:items="item" v-bind:key="index"/>
+            <Card v-for="(item, index) in films" v-bind:items="item" v-bind:key="index"/>
         </div>
     </div>
 </template>
 
 <script>
-    import List from './components/List.vue'
+    import Card from './components/Card.vue'
 
     export default {
         name: 'app',
         components: {
-            List
+            Card
         },
         data() {
             return {
