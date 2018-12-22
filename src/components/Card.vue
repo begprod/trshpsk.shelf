@@ -7,19 +7,28 @@
                 <h4 class="card__title card__title_sm">{{ items.year }}</h4>
             </div>
             <div class="card__status">
-                <svg class="card__icon">
+                <svg class="card__icon" v-if="items.viewed">
+                    <title>Смотрели</title>
                     <use xlink:href="./img/icons-svg/icons.svg#check-square-1"></use>
                 </svg>
-                <svg class="card__icon">
+                <svg class="card__icon" v-if="!items.viewed">
+                    <title>Не смотрели</title>
                     <use xlink:href="./img/icons-svg/icons.svg#minus-square-1"></use>
                 </svg>
-                <svg class="card__icon">
+                <svg class="card__icon" v-if="items.iframe_full">
+                    <title>Полный фильм на сайте</title>
                     <use xlink:href="./img/icons-svg/icons.svg#video-camera-1"></use>
                 </svg>
-                <svg class="card__icon">
+                <svg class="card__icon" v-if="items.iframe_trailer">
+                    <title>Трейлер на сайте</title>
+                    <use xlink:href="./img/icons-svg/icons.svg#video-camera-1"></use>
+                </svg>
+                <svg class="card__icon" v-if="items.review">
+                    <title>Обзор есть</title>
                     <use xlink:href="./img/icons-svg/icons.svg#save-file-1"></use>
                 </svg>
-                <svg class="card__icon">
+                <svg class="card__icon" v-if="items.review_user">
+                    <title>Обзор от пользователя</title>
                     <use xlink:href="./img/icons-svg/icons.svg#verify-woman-user-1"></use>
                 </svg>
             </div>
@@ -46,7 +55,7 @@
         transition: .3s ease-in-out;
         transition-property: box-shadow;
         &:hover {
-            box-shadow: 0 15px 25px rgba(70, 20, 225, 0.2);
+            box-shadow: 0 15px 25px rgba(70, 20, 225, 0.3);
         }
         &:nth-child(4n) {
             margin-right: 0;
@@ -80,13 +89,14 @@
         }
         &__status {
             display: flex;
-            flex-direction: row;
-            flex-wrap: nowrap;
-            justify-content: space-between;
         }
         &__icon {
             width: 35px;
             height: 35px;
+            margin-right: 25px;
+            &:last-child {
+                margin-right: 0;
+            }
         }
     }
 </style>
