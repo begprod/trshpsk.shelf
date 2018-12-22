@@ -5,6 +5,8 @@
                 <h2 class="card__title">{{ items.title }}</h2>
                 <h3 class="card__title card__title_md" v-if="items.title_eng">{{ items.title_eng }}</h3>
                 <h4 class="card__title card__title_sm">{{ items.year }}</h4>
+            </div>
+            <div class="card__links">
                 <a class="card__link" v-bind:href="items.trshpsk_link" v-if="items.trshpsk_link" target="_blank">
                     trashopoisk.com
                     <svg class="card__link-icon">
@@ -106,6 +108,11 @@
                 font-size: 14px;
                 color: rgba(75, 75, 75, .6);
             }
+        }
+        &__links {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
         }
         &__link {
             display: flex;
