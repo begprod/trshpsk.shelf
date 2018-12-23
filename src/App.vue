@@ -2,8 +2,7 @@
     <div id="app">
         <Header name="trshpsk.shelf"/>
         <div class="wrapper" style="margin-bottom: 70px">
-            <label for="search">Search</label>
-            <input id="search" type="text" placeholder="Search" v-model="search">
+            <Search v-model="search"/>
         </div>
         <div class="wrapper wrapper_grid">
             <Card v-for="(item, index) in filteredList" v-bind:items="item" v-bind:key="index"/>
@@ -14,11 +13,13 @@
 <script>
     import Card from './components/Card.vue';
     import Header from './components/Header.vue';
+    import Search from './components/Search.vue';
 
     export default {
         name: 'app',
         components: {
             Header,
+            Search,
             Card
         },
         data() {
