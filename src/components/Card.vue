@@ -22,11 +22,11 @@
             </div>
             <div class="card__status">
                 <svg class="card__icon" v-if="items.viewed">
-                    <title>Смотрели</title>
+                    <title>Просмотрен</title>
                     <use xlink:href="./img/icons-svg/icons.svg#check-square-1"></use>
                 </svg>
                 <svg class="card__icon" v-if="!items.viewed">
-                    <title>Не смотрели</title>
+                    <title>Не просмотрен</title>
                     <use xlink:href="./img/icons-svg/icons.svg#minus-square-1"></use>
                 </svg>
                 <svg class="card__icon" v-if="items.iframe_full">

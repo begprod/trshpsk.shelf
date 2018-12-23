@@ -1,11 +1,8 @@
 <template>
     <div id="app">
-        <Header name="trshpsk.shelf"/>
-        <div class="wrapper" style="margin-bottom: 70px">
-            <Search v-model="search"/>
-        </div>
+        <Header name="trshpsk.shelf" v-model="searchValue"/>
         <div class="wrapper wrapper_grid">
-            <Card v-for="(item, index) in filteredList" v-bind:items="item" v-bind:key="index"/>
+            <Card v-for="(item, index) in searchList" v-bind:items="item" v-bind:key="index"/>
         </div>
     </div>
 </template>
@@ -13,19 +10,17 @@
 <script>
     import Card from './components/Card.vue';
     import Header from './components/Header.vue';
-    import Search from './components/Search.vue';
 
     export default {
         name: 'app',
         components: {
             Header,
-            Search,
             Card
         },
         data() {
             return {
                 films: [],
-                search: ''
+                searchValue: ''
             }
         },
         created() {
@@ -41,11 +36,11 @@
                 })
         },
         computed: {
-            filteredList: function () {
+            searchList: function () {
                 return this.films.filter((film) => {
-                    return film.title.toLowerCase().includes(this.search.toLowerCase()) ||
-                           film.title_eng.toLowerCase().includes(this.search.toLowerCase()) ||
-                           film.year.toString().includes(this.search);
+                    return film.title.toLowerCase().includes(this.searchValue.toLowerCase()) ||
+                           film.title_eng.toLowerCase().includes(this.searchValue.toLowerCase()) ||
+                           film.year.toString().includes(this.searchValue);
                 });
             }
         }

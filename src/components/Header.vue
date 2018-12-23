@@ -1,14 +1,27 @@
 <template>
     <header class="header">
         <div class="header__logo">{{ name }}</div>
+        <div>
+            <Search v-model="searchValue" v-on:input="$emit('input', searchValue)"/>
+        </div>
     </header>
 </template>
 
 <script>
+    import Search from '../components/Search.vue';
+
     export default {
         name: 'Header',
+        data() {
+            return {
+                searchValue: ''
+            }
+        },
         props: {
             name
+        },
+        components: {
+            Search
         }
     }
 </script>
