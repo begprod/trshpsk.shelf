@@ -77,7 +77,7 @@
         transition: .3s ease-in-out;
         transition-property: box-shadow;
         &:hover {
-            box-shadow: 0 15px 25px rgba(70, 20, 225, .8);
+            box-shadow: 0 15px 25px rgba(20, 225, 177, 0.6);
         }
         &:nth-child(4n) {
             margin-right: 0;
