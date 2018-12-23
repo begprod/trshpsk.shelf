@@ -1,8 +1,8 @@
 <template>
     <header class="header">
         <div class="header__logo">{{ name }}</div>
-        <div>
-            <Search v-model="searchValue" v-on:input="$emit('input', searchValue)"/>
+        <div class="header__search">
+            <Search v-model="searchValue" v-on:input="$emit('input', searchValue)" placeholder="Поиск"/>
         </div>
     </header>
 </template>
@@ -33,11 +33,16 @@
         align-items: center;
         margin-bottom: 70px;
         height: 70px;
-        border-bottom: 1px solid rgba(75, 75, 75, .2);
+        background-color: #1f1f1f;
         &__logo {
+            margin-right: 70px;
             font-size: 28px;
             font-weight: bold;
-            color: #ff4e00;
+            color: white;
+        }
+        &__search {
+            width: 50%;
+            height: 40px;
         }
     }
 </style>

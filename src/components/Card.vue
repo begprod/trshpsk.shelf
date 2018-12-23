@@ -73,11 +73,11 @@
         width: 300px;
         height: 300px;
         border-radius: 10px;
-        border: 1px solid rgba(75, 75, 75, .2);
+        background-color: #262626;
         transition: .3s ease-in-out;
         transition-property: box-shadow;
         &:hover {
-            box-shadow: 0 15px 25px rgba(70, 20, 225, 0.3);
+            box-shadow: 0 15px 25px rgba(70, 20, 225, .8);
         }
         &:nth-child(4n) {
             margin-right: 0;
@@ -91,22 +91,23 @@
             justify-content: space-between;
             width: 100%;
             padding: 20px;
+            color: white;
         }
         &__title {
             margin: 0 0 15px 0;
             font-size: 20px;
-            color: rgba(75, 75, 75, 1);
+            color: inherit;
             &:empty,
             &:last-child {
                 margin-bottom: 0;
             }
             &_md {
                 font-size: 16px;
-                color: rgba(75, 75, 75, .8);
+                color: inherit;
             }
             &_sm {
                 font-size: 14px;
-                color: rgba(75, 75, 75, .6);
+                color: inherit;
             }
         }
         &__links {
