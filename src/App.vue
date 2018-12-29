@@ -60,7 +60,7 @@
 
     body {
         margin: 0;
-        padding: 0;
+        padding: 0 0 100px 0;
         font-size: 16px;
         font-family: Arial, sans-serif;
         background-color: #141414;
