@@ -58,5 +58,53 @@
         "iframe_trailer": false,
         "review": true,
         "review_user": true
+    },
+    {
+        "title": "Визит",
+        "title_eng": "The Visit",
+        "year": 2015,
+        "trshpsk_link": "//trashopoisk.com/luchshie-iz-xudshix/vizit.html",
+        "knpsk_link": "//www.kinopoisk.ru/film/838043/",
+        "viewed": true,
+        "iframe_full": true,
+        "iframe_trailer": true,
+        "review": true,
+        "review_user": false
+    },
+    {
+        "title": "Гуммо",
+        "title_eng": "Gummo",
+        "year": 1997,
+        "trshpsk_link": "//trashopoisk.com/luchshie-iz-xudshix/gummo.html",
+        "knpsk_link": "//www.kinopoisk.ru/film/gummo-1997-21538/",
+        "viewed": true,
+        "iframe_full": true,
+        "iframe_trailer": false,
+        "review": true,
+        "review_user": false
+    },
+    {
+        "title": "Зараза",
+        "title_eng": "The Taint",
+        "year": 2011,
+        "trshpsk_link": "//trashopoisk.com/luchshie-iz-xudshix/zaraza.html",
+        "knpsk_link": "//www.kinopoisk.ru/film/563403/",
+        "viewed": true,
+        "iframe_full": true,
+        "iframe_trailer": true,
+        "review": true,
+        "review_user": false
+    },
+    {
+        "title": "Зеленый Слоник",
+        "title_eng": "",
+        "year": 1998,
+        "trshpsk_link": "//trashopoisk.com/luchshie-iz-xudshix/zelenyij-slonik.html",
+        "knpsk_link": "//www.kinopoisk.ru/film/zelenyy-slonik-1999-373314/",
+        "viewed": true,
+        "iframe_full": true,
+        "iframe_trailer": true,
+        "review": true,
+        "review_user": false
     }
 ]
