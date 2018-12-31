@@ -1,6 +1,8 @@
 <template>
     <header class="header">
-        <div class="header__logo">{{ name }}</div>
+        <div class="header__logo">
+            <slot name="header-name"></slot>
+        </div>
         <div class="header__search">
             <Search v-model="searchValue" v-on:input="$emit('input', searchValue)" placeholder="Поиск"/>
         </div>
@@ -16,9 +18,6 @@
             return {
                 searchValue: ''
             }
-        },
-        props: {
-            name
         },
         components: {
             Search

@@ -1,6 +1,10 @@
 <template>
     <div id="app">
-        <Header name="trshpsk.shelf" v-model="searchValue"/>
+        <Header name="trshpsk.shelf" v-model="searchValue">
+            <template slot="header-name">
+                trshpsk.shelf
+            </template>
+        </Header>
         <div class="wrapper wrapper_grid">
             <Card v-for="(item, index) in searchList" v-bind:items="item" v-bind:key="index"/>
         </div>
