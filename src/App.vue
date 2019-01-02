@@ -8,7 +8,7 @@
         <div class="wrapper wrapper_grid">
             <Card v-for="(item, index) in displayedFilms" v-bind:items="item" v-bind:key="index"/>
         </div>
-        <div class="wrapper pagination" v-if="searchValue === ''">
+        <div class="wrapper pagination">
             <button type="button" v-if="page != 1" v-on:click="page--"><<</button>
             <button v-for="pageNumber in pages.slice(page - 1, page + 5)" v-on:click="page = pageNumber" type="button">{{ pageNumber }}</button>
         </div>
@@ -47,9 +47,10 @@
                         console.log(`Fetch error: ${err}`)
                     });
             },
-            setPages: function () {
-                let numOfPages = Math.ceil(this.films.length / this.perPage);
+            setPages: function (films) {
+                let numOfPages = Math.ceil(films.length / this.perPage);
 
+                this.pages = [];
                 for(let i = 1; i <= numOfPages; i++) {
                     this.pages.push(i);
                 }
@@ -67,23 +68,19 @@
             this.getData();
         },
         computed: {
+            filmSearch: function () {
+                return this.films.filter((film) => {
+                    return film.title.toLowerCase().includes(this.searchValue.toLowerCase())
+                        ||
+                        film.title_eng.toLowerCase().includes(this.searchValue.toLowerCase())
+                        ||
+                        film.year.toString().includes(this.searchValue);
+                });
+            },
             displayedFilms: function () {
-                if (this.searchValue === '') {
-                    return this.paginate(this.films);
-                } else {
-                    return this.films.filter((film) => {
-                        return film.title.toLowerCase().includes(this.searchValue.toLowerCase())
-                            ||
-                            film.title_eng.toLowerCase().includes(this.searchValue.toLowerCase())
-                            ||
-                            film.year.toString().includes(this.searchValue);
-                    });
-                }
-            }
-        },
-        watch: {
-            films() {
-                this.setPages();
+                // console.log(this.filmSearch);
+                this.setPages(this.filmSearch);
+                return this.paginate(this.filmSearch);
             }
         }
     }
