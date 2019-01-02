@@ -30,7 +30,7 @@
                 films: [],
                 searchValue: '',
                 page: 1,
-                perPage: 4,
+                perPage: 12,
                 pages: []
             }
         },
@@ -60,7 +60,6 @@
                 let perPage = this.perPage;
                 let from = (page * perPage) - perPage;
                 let to = (page * perPage);
-
                 return films.slice(from, to);
             }
         },
@@ -78,7 +77,6 @@
                 });
             },
             displayedFilms: function () {
-                // console.log(this.filmSearch);
                 this.setPages(this.filmSearch);
                 return this.paginate(this.filmSearch);
             }
