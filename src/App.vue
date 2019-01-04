@@ -6,22 +6,30 @@
             </template>
         </Header>
         <div class="wrapper wrapper_grid">
-            <Card v-for="(item, index) in displayedFilms" v-bind:items="item" v-bind:key="index"/>
+            <Card v-for="(item, index) in displayedFilms"
+                  :items="item"
+                  :key="index"
+            />
         </div>
-        <div class="wrapper pagination">
-            <button type="button" v-if="page != 1" v-on:click="page--"><<</button>
-            <button v-for="pageNumber in pages.slice(page - 1, page + 5)" v-on:click="page = pageNumber" type="button">{{ pageNumber }}</button>
+        <div class="wrapper">
+            <Pagination
+                    :current-page="page"
+                    :total-pages="pages.length"
+                    @pagechanged="onPageChange"
+            />
         </div>
     </div>
 </template>
 
 <script>
-    import Card from './components/Card.vue';
     import Header from './components/Header.vue';
+    import Card from './components/Card.vue';
+    import Pagination from './components/Pagination.vue';
 
     export default {
         name: 'app',
         components: {
+            Pagination,
             Header,
             Card
         },
@@ -29,8 +37,8 @@
             return {
                 films: [],
                 searchValue: '',
-                page: 1,
                 perPage: 12,
+                page: 1,
                 pages: []
             }
         },
@@ -47,20 +55,25 @@
                         console.log(`Fetch error: ${err}`)
                     });
             },
-            setPages: function (films) {
+            setPagesArray: function (films) {
                 let numOfPages = Math.ceil(films.length / this.perPage);
 
                 this.pages = [];
+
                 for(let i = 1; i <= numOfPages; i++) {
                     this.pages.push(i);
                 }
             },
-            paginate: function (films) {
+            setItemsEachPage: function (films) {
                 let page = this.page;
                 let perPage = this.perPage;
                 let from = (page * perPage) - perPage;
                 let to = (page * perPage);
+
                 return films.slice(from, to);
+            },
+            onPageChange(page) {
+                this.page = page;
             }
         },
         created() {
@@ -68,6 +81,7 @@
         },
         computed: {
             filmSearch: function () {
+                this.page = 1;
                 return this.films.filter((film) => {
                     return film.title.toLowerCase().includes(this.searchValue.toLowerCase())
                         ||
@@ -77,8 +91,9 @@
                 });
             },
             displayedFilms: function () {
-                this.setPages(this.filmSearch);
-                return this.paginate(this.filmSearch);
+                this.setPagesArray(this.filmSearch);
+
+                return this.setItemsEachPage(this.filmSearch);
             }
         }
     }
