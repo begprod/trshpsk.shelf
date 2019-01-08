@@ -7,8 +7,8 @@
                 <h4 class="card__title card__title_sm">{{ items.year }}</h4>
             </div>
             <div class="card__links">
-                <a class="card__link" v-bind:href="items.trshpsk_link" v-if="items.trshpsk_link" target="_blank">trashopoisk.com</a>
-                <a class="card__link" v-bind:href="items.knpsk_link" v-if="items.knpsk_link" target="_blank">kinopoisk.ru</a>
+                <a class="card__link" :href="items.trshpsk_link" v-if="items.trshpsk_link" target="_blank">trashopoisk.com</a>
+                <a class="card__link" :href="items.knpsk_link" v-if="items.knpsk_link" target="_blank">kinopoisk.ru</a>
             </div>
             <div class="card__status">
                 <div class="card__icon card__icon_green" v-if="items.viewed">
