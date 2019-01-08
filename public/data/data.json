@@ -800,7 +800,7 @@
         "viewed": false,
         "iframe_full": true,
         "iframe_trailer": false,
-        "review": false,
+        "review": true,
         "review_user": false
     }
 ]

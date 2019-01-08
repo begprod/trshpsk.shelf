@@ -7,52 +7,34 @@
                 <h4 class="card__title card__title_sm">{{ items.year }}</h4>
             </div>
             <div class="card__links">
-                <a class="card__link" v-bind:href="items.trshpsk_link" v-if="items.trshpsk_link" target="_blank">
-                    trashopoisk.com
-                    <svg class="card__link-icon">
-                        <use xlink:href="./img/icons-svg/icons.svg#external-link-1"></use>
-                    </svg>
-                </a>
-                <a class="card__link" v-bind:href="items.knpsk_link" v-if="items.knpsk_link" target="_blank">
-                    kinopoisk.ru
-                    <svg class="card__link-icon">
-                        <use xlink:href="./img/icons-svg/icons.svg#external-link-1"></use>
-                    </svg>
-                </a>
+                <a class="card__link" v-bind:href="items.trshpsk_link" v-if="items.trshpsk_link" target="_blank">trashopoisk.com</a>
+                <a class="card__link" v-bind:href="items.knpsk_link" v-if="items.knpsk_link" target="_blank">kinopoisk.ru</a>
             </div>
             <div class="card__status">
-                <svg class="card__icon" v-if="items.viewed">
-                    <title>Просмотрен</title>
-                    <use xlink:href="./img/icons-svg/icons.svg#check-square-1"></use>
-                </svg>
-                <svg class="card__icon" v-if="!items.viewed">
-                    <title>Не просмотрен</title>
-                    <use xlink:href="./img/icons-svg/icons.svg#minus-square-1"></use>
-                </svg>
-                <svg class="card__icon" v-if="items.iframe_full">
-                    <title>Полный фильм на сайте</title>
-                    <use xlink:href="./img/icons-svg/icons.svg#video-camera-1"></use>
-                </svg>
-                <svg class="card__icon" v-if="items.iframe_trailer">
-                    <title>Трейлер на сайте</title>
-                    <use xlink:href="./img/icons-svg/icons.svg#video-camera-1"></use>
-                </svg>
-                <svg class="card__icon" v-if="!items.iframe_trailer">
-                    <title>Трейлера нет сайте</title>
-                    <use xlink:href="./img/icons-svg/icons.svg#minus-square-1"></use>
-                </svg>
-                <svg class="card__icon" v-if="items.review">
-                    <title>Обзор есть</title>
-                    <use xlink:href="./img/icons-svg/icons.svg#save-file-1"></use>
-                </svg>
-                <svg class="card__icon" v-if="!items.review">
-                    <title>Обзора нет</title>
-                    <use xlink:href="./img/icons-svg/icons.svg#minus-square-1"></use>
-                </svg>
-                <svg class="card__icon" v-if="items.review_user">
-                    <title>Обзор от пользователя</title>
-                    <use xlink:href="./img/icons-svg/icons.svg#verify-woman-user-1"></use>
-                </svg>
+                <div class="card__icon card__icon_green" v-if="items.viewed">
+                    <i class="icon-done" title="Просмотрен"></i>
+                </div>
+                <div class="card__icon card__icon_red" v-if="!items.viewed">
+                    <i class="icon-minus" title="Не просмотрен"></i>
+                </div>
+                <div class="card__icon card__icon_green" v-if="items.iframe_full">
+                    <i class="icon-video" title="Полный фильм на сайте"></i>
+                </div>
+                <div class="card__icon card__icon_green" v-if="items.iframe_trailer">
+                    <i class="icon-video" title="Трейлер на сайте"></i>
+                </div>
+                <div class="card__icon card__icon_red" v-if="!items.iframe_trailer">
+                    <i class="icon-minus" title="Трейлера нет сайте"></i>
+                </div>
+                <div class="card__icon card__icon_green" v-if="items.review">
+                    <i class="icon-doc-plus" title="Обзор есть"></i>
+                </div>
+                <div class="card__icon card__icon_red" v-if="!items.review">
+                    <i class="icon-doc-minus" title="Обзора нет"></i>
+                </div>
+                <div class="card__icon card__icon_green" v-if="items.review_user">
+                    <i class="icon-user" title="Обзор от пользователя"></i>
+                </div>
             </div>
         </div>
     </div>
@@ -121,7 +103,7 @@
             align-items: center;
             margin-bottom: 10px;
             font-size: 14px;
-            color: #5ade9c;
+            color: lightgray;
         }
         &__link-icon {
             width: 15px;
@@ -130,13 +112,23 @@
         }
         &__status {
             display: flex;
+            align-items: center;
         }
         &__icon {
             width: 35px;
             height: 35px;
-            margin-right: 25px;
+            margin-right: 20px;
+            font-size: 25px;
+            line-height: 35px;
+            text-align: center;
             &:last-child {
                 margin-right: 0;
+            }
+            &_red {
+                color: #ff7171;
+            }
+            &_green {
+                color: #5ade9c;
             }
         }
     }
